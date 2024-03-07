@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import VideoCard from './VideoCard';
-import { VideoCardSkeleton } from '@/utils/skeleton/videoCardSkeleton';
+import { VideoCardSkeleton } from '../utils/skeleton/VideoCardSkeleton';
 
 const MainContainer = () => {
     const [videos, setVideos] = useState([]);
@@ -48,7 +48,7 @@ const MainContainer = () => {
         };
     }, [nextPageToken]);
 
-    if (videos === undefined) return null;
+    if (videos === undefined) return <VideoCardSkeleton />;
 
     return (
         <div className='flex flex-wrap w-full justify-center  space-y-10'>

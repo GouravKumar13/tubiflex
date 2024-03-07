@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import VideoCard from './VideoCard'
 import SearchVideoCard from './SearchVideoCard'
 
 const SearchResults = () => {
@@ -36,8 +35,8 @@ const SearchResults = () => {
 
         <div className='flex flex-wrap   justify-center w-full'>
             {videos?.map(video => (
-                (video?.id?.kind === "youtube#playlist" || video.snippet.liveBroadcastContent === "upcoming") ? null :
-                    <SearchVideoCard videoInfo={video} key={video.id.videoId} />
+                (video?.id?.kind === "youtube#playlist" || video?.snippet?.liveBroadcastContent === "upcoming") ? null :
+                    <SearchVideoCard videoInfo={video} key={video?.id?.videoId} />
             ))}
         </div>
 
