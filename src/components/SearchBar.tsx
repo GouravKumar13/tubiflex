@@ -1,15 +1,15 @@
 
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 
 const SearchBar = () => {
     const [searchQuery, setSearchQuery] = useState("")
     const [suggestions, setSuggestions] = useState([])
     const [isSearching, setIsSearching] = useState(false)
 
-    const dispatch = useDispatch()
-    const cache = useSelector(state => state.chashResults.caches)
+    // const dispatch = useDispatch()
+    const cache = useSelector((state) => state?.chashResults.caches)
 
     const getSuggestions = () => {
         fetch(`https://api.datamuse.com/sug?s=${searchQuery}`)

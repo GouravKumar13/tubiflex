@@ -6,7 +6,7 @@ const MainContainer = () => {
     const [videos, setVideos] = useState([]);
     const [nextPageToken, setNextPageToken] = useState();
 
-    const fetchData = async (token) => {
+    const fetchData = async (token?) => {
         const apiUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=12&regionCode=in&key=${import.meta.env.VITE_YOUTUBE_API_KEY}&pageToken=${token || ''}`;
 
         try {
