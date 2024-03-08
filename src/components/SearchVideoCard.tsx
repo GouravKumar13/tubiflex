@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 
 const SearchVideoCard = ({ videoInfo }) => {
     const [channelInfo, setChannelInfo] = useState();
-
+    const [loading, setLoading] = useState(true)
     const fetchChannelInfo = useCallback(() => {
         fetch(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${videoInfo.snippet.channelId}&key=${import.meta.env.VITE_YOUTUBE_API_KEY}`)
             .then((res) => res.json())
             .then((res) => {
                 setChannelInfo(res);
+                setLoading(false);
             })
             .catch((err) => console.log(err));
     }, [videoInfo.snippet.channelId]);
@@ -17,7 +18,7 @@ const SearchVideoCard = ({ videoInfo }) => {
     useEffect(() => {
         fetchChannelInfo();
     }, [fetchChannelInfo]);
-
+    if (loading) <VideoCardSkeleton />
     return (
         <div className="w-full h-[5%] p-3 sm:w-[30%]">
             <Link to={"/watch?v=" + videoInfo.id.videoId}>
