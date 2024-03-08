@@ -3,13 +3,15 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from "react-redux"
 
+interface ChashResultsState {
+    chashResults: { [key: string]: any[] }; // Adjust the type according to your actual state structure
+}
 const SearchBar = () => {
     const [searchQuery, setSearchQuery] = useState("")
     const [suggestions, setSuggestions] = useState([])
     const [isSearching, setIsSearching] = useState(false)
 
-    // const dispatch = useDispatch()
-    const cache = useSelector((state) => state?.chashResults.caches)
+    const cache = useSelector((state: ChashResultsState) => state?.chashResults.caches)
 
     const getSuggestions = () => {
         fetch(`https://api.datamuse.com/sug?s=${searchQuery}`)
@@ -32,7 +34,7 @@ const SearchBar = () => {
         return () => {
             clearTimeout(timer)
         }
-    }, [searchQuery])
+    }, [searchQuery, cache])
 
     // const handleKeyPress = (e) => {
     //     const key = e.keyCode || e.which;

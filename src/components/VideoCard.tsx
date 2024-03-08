@@ -5,17 +5,18 @@ import { Link } from 'react-router-dom'
 
 const VideoCard = ({ videoInfo }) => {
     const [channelInfo, setChannelInfo] = useState()
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         fetch(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${videoInfo.snippet.channelId}&key=${import.meta.env.VITE_YOUTUBE_API_KEY}`)
             .then((res) => res.json())
-            .then((res) => setChannelInfo(res))
+            .then((res) => { setChannelInfo(res), setLoading(false) })
             .catch((err) => console.log(err))
     }, [videoInfo.snippet.channelId])
 
 
 
-    if (channelInfo === undefined) return <VideoCardSkeleton />
+    if (loading) return <VideoCardSkeleton />
 
 
     return (
@@ -28,13 +29,12 @@ const VideoCard = ({ videoInfo }) => {
                 />
                 <div className='flex mt-2 gap-3'>
                     <div className='max-w-10  max-h-10 rounded-full'>
-
-                        <img src={channelInfo?.items[0].snippet.thumbnails.high.url} alt="channel logo" className='object-contain rounded-full hover:scale-110 ease-in-out transition-all' />
+                        <img src={channelInfo?.items[0].snippet.thumbnails.high.url ?? ''} alt="channel logo" className='object-contain rounded-full hover:scale-110 ease-in-out transition-all' />
                     </div>
                     <div className='flex flex-col -space-y-1'>
                         <h1 className='font-semibold'>{videoInfo.snippet.localized.title}</h1>
 
-                        <p className='font-medium  text-neutral-500'>{channelInfo.items[0].snippet.title}</p>
+                        <p className='font-medium  text-neutral-500'>{channelInfo?.items[0].snippet.title}</p>
 
                         <div className='flex gap-5'>
                             <span className='flex text-sm '>{formatNumber(videoInfo?.statistics?.viewCount)} views</span>
