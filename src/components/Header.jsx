@@ -17,7 +17,7 @@ const Header = () => {
     const theme = localStorage.getItem("theme")
 
     const { darkTheme, lightTheme } = useTheme()
-    const onChangeBtn = (checked: boolean) => {
+    const onChangeBtn = (checked) => {
         if (checked) {
             darkTheme()
             localStorage.setItem("theme", "dark")
@@ -63,7 +63,7 @@ const Header = () => {
 
 
 
-                    <Switch checked={theme === "light" ? false : true} onCheckedChange={onChangeBtn} />
+                    <Switch checked={ theme === "light" ? false : true } onCheckedChange={ onChangeBtn } />
                     <Avatar>
                         <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
                         <AvatarFallback>CN</AvatarFallback>
