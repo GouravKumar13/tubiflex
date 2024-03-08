@@ -29,7 +29,7 @@ const VideoCard = ({ videoInfo }) => {
                 <div className='flex mt-2 gap-3'>
                     <div className='max-w-10  max-h-10 rounded-full'>
 
-                        <img src={channelInfo.items[0].snippet.thumbnails.high.url} alt="channel logo" className='object-contain rounded-full hover:scale-110 ease-in-out transition-all' />
+                        <img src={channelInfo?.items[0].snippet.thumbnails.high.url} alt="channel logo" className='object-contain rounded-full hover:scale-110 ease-in-out transition-all' />
                     </div>
                     <div className='flex flex-col -space-y-1'>
                         <h1 className='font-semibold'>{videoInfo.snippet.localized.title}</h1>

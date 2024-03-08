@@ -5,13 +5,14 @@ import { VideoCardSkeleton } from '../utils/skeleton/VideoCardSkeleton';
 const MainContainer = () => {
     const [videos, setVideos] = useState([]);
     const [nextPageToken, setNextPageToken] = useState();
-
+    console.log(videos)
     const fetchData = async (token?) => {
         const apiUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=12&regionCode=in&key=${import.meta.env.VITE_YOUTUBE_API_KEY}&pageToken=${token || ''}`;
 
         try {
             const res = await fetch(apiUrl);
             const data = await res.json();
+            console.log(data)
 
             if (token) {
                 // If token is provided, it means it's for infinite scroll, so concatenate the new videos
@@ -53,7 +54,7 @@ const MainContainer = () => {
     return (
         <div className='flex flex-wrap w-full justify-center  space-y-10'>
             <div></div>
-            {videos.map((video) => {
+            {videos?.map((video) => {
 
                 return (
                     <VideoCard videoInfo={video} key={video?.id} />

@@ -30,7 +30,7 @@ const SearchResults = () => {
 
 
     console.log(videos)
-    if (!videos.length) return null;
+    if (!videos?.length) return null;
     return (
 
         <div className='flex flex-wrap   justify-center w-full'>

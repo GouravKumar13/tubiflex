@@ -11,7 +11,7 @@ interface VideoCategory {
 }
 
 const VideoCategories = () => {
-    const [searchQuery, setSearchQuery] = React.useState("")
+
     const [videoCategories, setVideoCategories] = React.useState<VideoCategory[]>([])
     //debouncing
     const videoCategoriesUrl = `https://youtube.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode=IN&key=${import.meta.env.VITE_YOUTUBE_API_KEY}`
