@@ -29,7 +29,7 @@ const SearchResults = () => {
     }, [searchParams.get("s")]); // Run only once on mount
 
 
-    console.log(videos)
+
     if (!videos?.length) return null;
     return (
 

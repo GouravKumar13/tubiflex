@@ -26,23 +26,24 @@ const VideoCard = ({ videoInfo }) => {
                     className="rounded-xl w-full"
                     src={videoInfo.snippet.thumbnails.medium.url}
                     alt="Thumbnail"
-                />
-                <div className='flex mt-2 gap-3'>
-                    <div className='max-w-10  max-h-10 rounded-full'>
-                        <img src={channelInfo?.items[0].snippet.thumbnails.high.url ?? ''} alt="channel logo" className='object-contain rounded-full hover:scale-110 ease-in-out transition-all' />
-                    </div>
-                    <div className='flex flex-col -space-y-1'>
-                        <h1 className='font-semibold'>{videoInfo.snippet.localized.title}</h1>
+                />{
+                    channelInfo && (
+                        <div className='flex mt-2 gap-3'>
+                            <div className='max-w-10  max-h-10 rounded-full'>
+                                <img src={channelInfo?.items[0]?.snippet?.thumbnails?.high.url ?? ''} alt="channel logo" className='object-contain rounded-full hover:scale-110 ease-in-out transition-all' />
+                            </div>
+                            <div className='flex flex-col -space-y-1'>
+                                <h1 className='font-semibold'>{videoInfo.snippet.localized.title}</h1>
 
-                        <p className='font-medium  text-neutral-500'>{channelInfo?.items[0].snippet.title}</p>
+                                <p className='font-medium  text-neutral-500'>{channelInfo?.items[0]?.snippet?.title}</p>
 
-                        <div className='flex gap-5'>
-                            <span className='flex text-sm '>{formatNumber(videoInfo?.statistics?.viewCount)} views</span>
-                            <span className='flex text-sm '>{formatNumber(videoInfo?.statistics?.likeCount)} likes</span>
+                                <div className='flex gap-5'>
+                                    <span className='flex text-sm '>{formatNumber(videoInfo?.statistics?.viewCount)} views</span>
+                                    <span className='flex text-sm '>{formatNumber(videoInfo?.statistics?.likeCount)} likes</span>
 
-                        </div>
-                    </div>
-                </div>
+                                </div>
+                            </div>
+                        </div>)}
             </Link>
         </div>
     )
