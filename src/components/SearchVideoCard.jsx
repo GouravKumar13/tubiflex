@@ -28,17 +28,16 @@ const SearchVideoCard = ({ videoInfo }) => {
                     className="rounded-xl w-full"
                     src={videoInfo.snippet.thumbnails.medium.url}
                     alt="Thumbnail"
-                />{
-                    channelInfo && (
-                        <div className='flex mt-2 gap-4'>
-                            <div className='w-10 h-10 rounded-full'>
-                                <img src={videoInfo.snippet.thumbnails.high.url} alt="channel logo" className='object-contain aspect-[1/1] rounded-full hover:scale-110 ease-in-out transition-all' />
-                            </div>
-                            <div>
-                                <h1 className='font-semibold'>{videoInfo.snippet.title}</h1>
-                                <p className='font-medium text-neutral-500'>{channelInfo?.items[0]?.snippet.title ?? ''}</p>
-                            </div>
-                        </div>)}
+                />
+                <div className='flex mt-2 gap-4'>
+                    <div className='w-10 h-10 rounded-full'>
+                        <img src={videoInfo.snippet.thumbnails.high.url} alt="channel logo" className='object-contain aspect-[1/1] rounded-full hover:scale-110 ease-in-out transition-all' />
+                    </div>
+                    <div>
+                        <h1 className='font-semibold'>{videoInfo.snippet.title}</h1>
+                        <p className='font-medium text-neutral-500'>{channelInfo?.items[0]?.snippet.title ?? ''}</p>
+                    </div>
+                </div>
             </Link>
         </div>
     );

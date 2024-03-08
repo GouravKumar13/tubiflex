@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import VideoCard from './VideoCard';
+import VideoCard from './videoCard';
 import { VideoCardSkeleton } from '../utils/skeleton/VideoCardSkeleton';
 
 const MainContainer = () => {
