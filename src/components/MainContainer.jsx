@@ -7,7 +7,7 @@ const MainContainer = () => {
     const [nextPageToken, setNextPageToken] = useState();
     const [loading, setLoading] = useState(true);
     console.log(videos)
-    const fetchData = useCallback(async (token?) => {
+    const fetchData = useCallback(async (token) => {
         const apiUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=12&regionCode=in&key=${import.meta.env.VITE_YOUTUBE_API_KEY}&pageToken=${token || ''}`;
 
         try {
@@ -56,12 +56,12 @@ const MainContainer = () => {
     return (
         <div className='flex flex-wrap w-full justify-center  space-y-10'>
             <div></div>
-            {videos?.map((video) => {
+            { videos?.map((video) => {
                 console.log(video)
                 return (
-                    <VideoCard videoInfo={video} key={video?.snippet?.publishedAt} />
+                    <VideoCard videoInfo={ video } key={ video?.snippet?.publishedAt } />
                 )
-            })}
+            }) }
         </div>
     );
 };

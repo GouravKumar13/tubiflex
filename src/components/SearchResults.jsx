@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import SearchVideoCard from './SearchVideoCard'
 
@@ -29,17 +29,17 @@ const SearchResults = () => {
     }, [searchParams.get("s")]); // Run only once on mount
 
 
-    console.log(videos)
+
+
+
     if (!videos?.length) return null;
     return (
-
-        <div className='flex flex-wrap   justify-center w-full'>
+        <div className='flex flex-wrap justify-center w-full'>
             {videos?.map(video => (
                 (video?.id?.kind === "youtube#playlist" || video?.snippet?.liveBroadcastContent === "upcoming") ? null :
                     <SearchVideoCard videoInfo={video} key={video?.id?.videoId} />
             ))}
         </div>
-
     )
 }
 

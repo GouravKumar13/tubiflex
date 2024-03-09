@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import App from './App.jsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import MainContainer from './components/MainContainer'
-import WatchPage from './components/WatchPage.tsx'
-import SearchResults from './components/SearchResults.tsx'
+import MainContainer from './components/MainContainer.jsx'
+import WatchPage from './components/WatchPage.jsx'
+import SearchResults from './components/SearchResults.jsx'
 import { Provider } from 'react-redux'
-import store from "../src/Redux/Store.ts"
+import store from "./Redux/Store.js"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,10 +22,10 @@ const router = createBrowserRouter([
     ]
   }
 ])
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
+    <Provider store={ store }>
+      <RouterProvider router={ router } />
     </Provider>
 
   </React.StrictMode>,
