@@ -17,7 +17,7 @@ const VideoCard = ({ videoInfo }) => {
 
 
     if (loading) return <VideoCardSkeleton />
-
+    if (channelInfo === undefined) return null
 
     return (
         <div className="flex flex-col justify-start flex-wrap w-full h-[5%] p-2 sm:w-[30%]  ">

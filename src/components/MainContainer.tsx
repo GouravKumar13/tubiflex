@@ -52,7 +52,7 @@ const MainContainer = () => {
     }, [nextPageToken]);
 
     if (loading) return <VideoCardSkeleton />;
-
+    console.log(videos)
     return (
         <div className='flex flex-wrap w-full justify-center  space-y-10'>
             <div></div>

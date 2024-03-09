@@ -19,6 +19,7 @@ const SearchVideoCard = ({ videoInfo }) => {
         fetchChannelInfo();
     }, [fetchChannelInfo]);
     if (loading) <VideoCardSkeleton />
+    if (channelInfo === undefined) return null
     return (
         <div className="w-full h-[5%] p-3 sm:w-[30%]">
             <Link to={"/watch?v=" + videoInfo.id.videoId}>
@@ -33,7 +34,7 @@ const SearchVideoCard = ({ videoInfo }) => {
                     </div>
                     <div>
                         <h1 className='font-semibold'>{videoInfo.snippet.title}</h1>
-                        <p className='font-medium text-neutral-500'>{channelInfo?.items[0]?.snippet.title ?? ''}</p>
+                        <p className='font-medium text-neutral-500'>{channelInfo && (channelInfo?.items[0]?.snippet.title ?? '')}</p>
                     </div>
                 </div>
             </Link>
