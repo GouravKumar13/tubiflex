@@ -1,10 +1,11 @@
 import formatNumber from '@/utils/hooks/useFormater'
 import { VideoCardSkeleton } from '@/utils/skeleton/VideoCardSkeleton'
+import { ChannelInfo } from '@/utils/types'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const VideoCard = ({ videoInfo }) => {
-    const [channelInfo, setChannelInfo] = useState()
+    const [channelInfo, setChannelInfo] = useState<ChannelInfo>()
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {

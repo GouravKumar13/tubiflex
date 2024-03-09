@@ -1,9 +1,11 @@
 import { useEffect, useState, useCallback } from 'react';
 import { VideoCardSkeleton } from '@/utils/skeleton/VideoCardSkeleton';
 import { Link } from 'react-router-dom';
+import { ChannelInfo } from '@/utils/types';
+
 
 const SearchVideoCard = ({ videoInfo }) => {
-    const [channelInfo, setChannelInfo] = useState();
+    const [channelInfo, setChannelInfo] = useState<ChannelInfo>();
     const [loading, setLoading] = useState(true)
     const fetchChannelInfo = useCallback(() => {
         fetch(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${videoInfo.snippet.channelId}&key=${import.meta.env.VITE_YOUTUBE_API_KEY}`)
@@ -14,6 +16,7 @@ const SearchVideoCard = ({ videoInfo }) => {
             })
             .catch((err) => console.log(err));
     }, [videoInfo.snippet.channelId]);
+    console.log(channelInfo)
 
     useEffect(() => {
         fetchChannelInfo();
@@ -34,7 +37,7 @@ const SearchVideoCard = ({ videoInfo }) => {
                     </div>
                     <div>
                         <h1 className='font-semibold'>{videoInfo.snippet.title}</h1>
-                        <p className='font-medium text-neutral-500'>{channelInfo && (channelInfo?.items[0]?.snippet.title ?? '')}</p>
+                        <p className='font-medium text-neutral-500'>{channelInfo?.items[0]?.snippet.title ?? ''}</p>
                     </div>
                 </div>
             </Link>
