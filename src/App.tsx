@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "./utils/context/ThemeContext";
 import Header from "./components/Header";
 import Body from "./components/Body";
