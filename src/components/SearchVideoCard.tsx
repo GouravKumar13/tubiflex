@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { VideoCardSkeleton } from '@/utils/skeleton/VideoCardSkeleton';
 import { Link } from 'react-router-dom';
 import { ChannelInfo } from '@/utils/types';

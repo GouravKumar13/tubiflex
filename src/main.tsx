@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import App from './App.js'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import MainContainer from './components/MainContainer.jsx'
-import WatchPage from './components/WatchPage.jsx'
-import SearchResults from './components/SearchResults.jsx'
+import MainContainer from './components/MainContainer.js'
+import WatchPage from './components/WatchPage.js'
+import SearchResults from './components/SearchResults.js'
 import { Provider } from 'react-redux'
 import store from "./Redux/Store.js"
 const router = createBrowserRouter([
@@ -24,8 +24,8 @@ const router = createBrowserRouter([
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={ store }>
-      <RouterProvider router={ router } />
+    <Provider store={store}>
+      <RouterProvider router={router} />
     </Provider>
 
   </React.StrictMode>,

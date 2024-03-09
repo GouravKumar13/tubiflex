@@ -1,3 +1,4 @@
+import React from "react"
 import useTheme from "@/utils/context/ThemeContext"
 import { Switch } from "./ui/switch"
 import { Avatar, AvatarFallback } from "./ui/avatar"
@@ -63,7 +64,7 @@ const Header = () => {
 
 
 
-                    <Switch checked={ theme === "light" ? false : true } onCheckedChange={ onChangeBtn } />
+                    <Switch checked={theme === "light" ? false : true} onCheckedChange={onChangeBtn} />
                     <Avatar>
                         <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
                         <AvatarFallback>CN</AvatarFallback>
