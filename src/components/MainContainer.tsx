@@ -12,7 +12,7 @@ const MainContainer = () => {
         try {
             const res = await fetch(apiUrl);
             const data = await res.json();
-            console.log(data)
+
 
             if (token) {
                 // If token is provided, it means it's for infinite scroll, so concatenate the new videos
@@ -56,7 +56,7 @@ const MainContainer = () => {
         <div className='flex flex-wrap w-full justify-center  space-y-10'>
             <div></div>
             {videos?.map((video) => {
-                console.log(video)
+
                 return (
                     <VideoCard videoInfo={video} key={video?.snippet?.publishedAt} />
                 )

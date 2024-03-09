@@ -16,7 +16,7 @@ const SearchVideoCard = ({ videoInfo }) => {
             })
             .catch((err) => console.log(err));
     }, [videoInfo.snippet.channelId]);
-    console.log(channelInfo)
+
 
     useEffect(() => {
         fetchChannelInfo();
